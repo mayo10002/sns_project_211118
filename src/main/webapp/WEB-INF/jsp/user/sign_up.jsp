@@ -43,7 +43,7 @@ $(document).ready(function(){
 	//아이디 중복확인
 	$('#loginIdCheckBtn').on('click',function(e){
 		let loginId = $('#loginId').val().trim();
-		
+		alert(loginId);
 		// 경고 문구 초기화
 		$('#idCheckLength').addClass('d-none');
 		$('#idCheckDuplicated').addClass('d-none');
@@ -59,6 +59,7 @@ $(document).ready(function(){
 			url:"/user/is_duplicated_id"
 			, data:{"loginId":loginId}
 			, success: function(data){
+				if(data.result){
 				if(data.result){
 					//w 중복인 경우
 					$('#idCheckDuplicated').removeClass('d-none');
@@ -127,7 +128,7 @@ $(document).ready(function(){
 		.done(function(data){
 			if(data.result == "success"){
 				alert('가입을 환영합니다! 로그인을 해주세요.');
-				location.href = "/user/sign_in_view	";
+				location.href = "/user/sign_in_view";
 			}else {
 				alert('가입에 실패했습니다. 다시 시도해주세요.');
 			}

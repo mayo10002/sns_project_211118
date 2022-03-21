@@ -9,7 +9,7 @@
 	<div class="login-info">
 		<c:if test="${not empty userName}">
 			<div class="mt-5 mr-4">
-				<span class="font-weight-bold">마싯다님 안녕하세요</span>
+				<span class="font-weight-bold">${userName}님 안녕하세요</span>
 				<a href="/user/sign_out" class="ml-2 text-white font-weight-bold">로그아웃</a>
 			</div>
 		</c:if>
