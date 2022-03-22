@@ -2,5 +2,5 @@
 
 header {height:100px;}
 .contents {height:700px;} 
-.sign-up-box {background-color:#ccc; padding:5px; box-shadow:2px 2px 2px 2px gray; }
+.sign-up-box {background-color:#eee; padding:10px; box-shadow:2px 2px 2px 2px #ddd; }
 footer {height:100px; color: gray;}

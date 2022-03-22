@@ -1,19 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+		<h1 class="mb-4 text-secondary pl-2 text-center">회원 가입</h1>
 <div class="d-flex justify-content-center container">
 	<div class="sign-up-box">
-		<h1 class="mb-4 text-secondary pl-2">회원 가입</h1>
-		<form id="signUpForm" method="post" action="user/sign_up">
-			<div class="sign-up-box">
 				<!-- 아이디 -->
+		<form id="signUpForm" method="post" action="/user/sign_up">
 				<span>아이디</span>
-				<div class="sign-up-input">
+				
 					<div class="d-flex">
 						<input type="text" id="loginId" name="loginId" class="form-control my-2" placeholder="아이디를 입력하세요">
 						<button type="button" id="loginIdCheckBtn" class="btn btn-success ml-3">중복 확인</button>
 					</div>
 					<!-- 아이디 alert & 중복확인 결과 -->
-					<div id="idCheckLength" class="small text-danger  d-none my-2">ID를 4자 이상 입력하세요.</div>
+					<div id="idCheckLength" class="small text-danger d-none my-2">ID를 4자 이상 입력하세요.</div>
 					<div id="idCheckDuplicated" class="small text-danger d-none my-2">이미 사용중인 아이디입니다.</div>
 					<div id="idCheckOk" class="small text-success d-none my-2">사용 가능한 아이디입니다.</div>
 					
@@ -29,21 +28,19 @@
 					<!-- address -->
 					<span>전화번호</span>
 					<input type="text" id="address" name="address" class="form-control my-2" placeholder="이메일 또는 전화번호를 입력하세요">
-  				</div>
-			</div>
-			<button type="button" id="signUpBtn" class="btn btn-primary float-center">회원가입</button>
-		</form>
+  				
+				<button type="button" id="signUpBtn" class="btn btn-primary float-center">회원가입</button>
+			</form>
+		</div>
 	
 	</div>
-
-</div>
 
 <script>
 $(document).ready(function(){
 	//아이디 중복확인
 	$('#loginIdCheckBtn').on('click',function(e){
 		let loginId = $('#loginId').val().trim();
-		alert(loginId);
+		
 		// 경고 문구 초기화
 		$('#idCheckLength').addClass('d-none');
 		$('#idCheckDuplicated').addClass('d-none');
@@ -59,7 +56,6 @@ $(document).ready(function(){
 			url:"/user/is_duplicated_id"
 			, data:{"loginId":loginId}
 			, success: function(data){
-				if(data.result){
 				if(data.result){
 					//w 중복인 경우
 					$('#idCheckDuplicated').removeClass('d-none');
