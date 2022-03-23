@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
 header {height:100px;}
-.contents {height:700px;} 
+.contents {min-height:500px;} 
 .sign-up-box {background-color:#eee; padding:10px; box-shadow:2px 2px 2px 2px #ddd; }
 footer {height:100px; color: gray;}
+
+.post-create-box{border:1px solid gray; border-radius: 2px;}
+.post-textarea{width:100%; height:100px; resize:none; border:none;}
