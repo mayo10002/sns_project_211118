@@ -57,7 +57,7 @@ $(document).ready(function(){
 		.done(function(data){
 			if(data.result == "success"){
 				// 로그인 성공
-				location.href = "/post/post_list_view"; // 화면으로 가는 것
+				location.href = "/timeline/timeline_view"; // 화면으로 가는 것
 			}else {
 				// 로그인 실패
 				alert(data.error_message);

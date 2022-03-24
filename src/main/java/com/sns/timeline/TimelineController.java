@@ -13,8 +13,10 @@ public class TimelineController {
 	@Autowired
 	private PostBO postBO;
 	
-	@RequestMapping("/timeline/timeline_view")
+	@RequestMapping("/timeline_view")
 	public String timeline(Model model) {
+		
+	//	List<CardView> cardView =
 		model.addAttribute("viewName", "timeline/timeline");
 		return "template/layout";
 	}
