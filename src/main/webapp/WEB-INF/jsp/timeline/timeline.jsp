@@ -1,18 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="d-flex justify-content-center">
-	<div class="post-create-box w-50">
+<div class="d-flex justify-content-center w-50">
+	<div class="post-create-box">
 		<textarea class="post-textarea" placeholder="무슨 일이 일어나고 있나요?"></textarea>
 		<div class="d-flex justify-content-between">
-			<input type="file" id="file" class="d-none" accept=".gif,.jpg,.jpeg,.png">
-			<a href="#" id="fileUploadBtn"><img src="#" alt="이미지 업로드 버튼">
-			<img src="https://www.iconninja.com/files/505/794/492/image-icon.png" alt="이미지 삽입"></a>
+			<div>
+				<input type="file" id="file" class="d-none" accept=".gif,.jpg,.jpeg,.png">
+				<a href="#" id="fileUploadBtn">
+				<img src="https://www.iconninja.com/files/505/794/492/image-icon.png" alt="이미지 삽입" width="30"></a>
+			</div>
 			<button type="button" class="btn btn-primary">게시</button>
 		</div>
 	</div>
-	<div id="timelinePost">
-	
+	<div id="timelinePost" class="border rounded my-3">
+		<div class="">
+			<div class="d-flex justify-content-between">
+				<small class="font-weight-bold">mayo10002</small>
+				<a href="#"><img src="https://www.iconninja.com/files/860/824/939/more-icon.png" alt="더보기" width="30"></a>
+			<!-- 본문 이미지  -->
+			</div>
+			<div class="post-image">
+				<img src="https://cdn.pixabay.com/photo/2018/05/10/20/40/basil-3388692_1280.jpg" alt="본문 이미지" width="100%" >
+			</div>
+			<!-- 좋아요 -->
+			<div class="like">
+				<a href="#"><img src="https://www.iconninja.com/files/527/809/128/heart-icon.png" width="18px" height="18px"></a>
+				<a href="#"><small>좋아요 11개</small></a>
+			</div>
+			<!-- 글씨 -->
+			<div class="mt-2 d-flex">
+				<small class="font-weight-bold">mayo10002</small>
+				<span class="ml-3">내용내용</span>
+			</div>
+			<!-- 댓글 제목 -->
+			<div class="comments mb-2">
+				<span class="font-weight-bold ml-3 mb-1">댓글</span>
+				<hr>
+			</div>
+			<!-- 댓글 목록 -->
+			<div class="card-comment m-1">
+						<span class="font-weight-bold">hagulu : </span>
+						<span> 분류가 잘 되었군요~</span>
+						
+						<%-- TODO: 댓글쓴이가 본인이면 삭제버튼 노출 --%>
+						<a href="#" class="commentDelBtn">
+							<img src="https://www.iconninja.com/files/603/22/506/x-icon.png" width="10px" height="10px">
+						</a>
+					</div>
+					
+					<div class="card-comment m-1">
+						<span class="font-weight-bold">jun_coffee : </span>
+						<span> 철이 없었죠 분류를 위해 클러스터를 썼다는게</span>
+						
+						<%-- TODO: 댓글쓴이가 본인이면 삭제버튼 노출 --%>
+						<a href="#" class="commentDelBtn">
+							<img src="https://www.iconninja.com/files/603/22/506/x-icon.png" width="10px" height="10px">
+						</a>
+					</div>
+		</div>
+		
 	
 	</div>
 	

@@ -2,6 +2,9 @@ package com.sns.post;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +18,12 @@ import com.sns.post.model.Post;
 public class PostController {
 	@Autowired
 	private PostBO postBO;
-	@RequestMapping("post_list_view")
+	@RequestMapping("/post_list_view")
 	public String postListView(
-			Model model) {
+			Model model,
+			HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		int userId = (int)request.getAttribute("userId");
 		List<Post> postList = postBO.getPostList();
 		model.addAttribute("postList", postList);
 		
