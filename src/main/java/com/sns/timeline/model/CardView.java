@@ -2,7 +2,10 @@ package com.sns.timeline.model;
 
 import java.util.List;
 
-import com.sns.post.bo.PostBO;
+import com.sns.comment.model.Comment;
+import com.sns.comment.model.CommentView;
+import com.sns.post.model.Post;
+import com.sns.user.model.User;
 
 public class CardView {
 
@@ -14,15 +17,56 @@ public class CardView {
 //	private List<Like> likeList;
 //	
 
-	private PostBO postBO;
-	private List<Comment> commentList;
+	private Post post;
+	
+	// 글쓴이 정보  >  글에 대한.
+	private User user;
+	// 댓글들
+	private List<CommentView> commentList;
+	//좋아요들
+	private int count;
+	// 로그인 된 사용자가 좋아요 눌렀는지 여부.
+	private boolean filledLike; // boolean 변수 만들 때 이름이 is로 시작되면 setter 이름이 이상해짐)
+	
 
-	public PostBO getPostBO() {
-		return postBO;
+	public List<CommentView> getCommentList() {
+		return commentList;
 	}
 
-	public void setPostBO(PostBO postBO) {
-		this.postBO = postBO;
+	public void setCommentList(List<CommentView> commentList) {
+		this.commentList = commentList;
+	}
+
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public boolean isFilledLike() {
+		return filledLike;
+	}
+
+	public void setFilledLike(boolean filledLike) {
+		this.filledLike = filledLike;
 	}
 	
 	

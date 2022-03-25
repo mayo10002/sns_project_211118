@@ -1,6 +1,7 @@
 package com.sns.post;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,13 +17,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sns.post.bo.PostBO;
+import com.sns.post.model.Post;
 @RequestMapping("/post")
 @RestController
 public class PostRestController {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private PostBO postBO;
-
+	
+	@RequestMapping("/post_list")
+	public List<Post> postList(){
+		return postBO.getPostList();
+	}
 	@PostMapping("/create")
 	public Map<String, Object> createPost(
 			@RequestParam("content") String content,
@@ -34,7 +40,7 @@ public class PostRestController {
 		String userLoginId = (String)session.getAttribute("userLoginId");
 		if( userLoginId == null ) {
 			result.put("result", "error");
-			logger.error("[글쓰기] 로그인 세션이 없습니다.");
+			logger.error("로그인 세션이 없습니다.");
 			return result;
 		}
 		// DB insert

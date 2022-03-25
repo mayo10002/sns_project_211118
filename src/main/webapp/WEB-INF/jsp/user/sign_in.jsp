@@ -31,7 +31,7 @@
 
 <script>
 $(document).ready(function(){
-	$('#loginForm').on('submit',function(e){
+	$('#signInBtn').on('click',function(e){
 		let loginId = $('#loginId').val().trim();
 		
 		if( loginId == ''){
@@ -46,8 +46,8 @@ $(document).ready(function(){
 		}
 		
 		//ajax로 하기.
-		let url = $(this).attr('action');
-		let params = $(this).serialize();
+		let url = $('#loginForm').attr('action');
+		let params = $('#loginForm').serialize();
 		
 		//콘솔 로그
 		console.log("url:" + url);
@@ -56,9 +56,9 @@ $(document).ready(function(){
 		$.post(url, params)
 		.done(function(data){
 			if(data.result == "success"){
-				alert("aa");
+				//alert("aa");
 				// 로그인 성공
-				//location.href = "/timeline/timeline_view"; // 화면으로 가는 것 (이게 지금 안 먹히는 중?! )
+				location.href = "/timeline/timeline_view"; // 화면으로 가는 것 (이게 지금 안 먹히는 중?! )
 			}else {
 				// 로그인 실패
 				alert(data.error_message);
