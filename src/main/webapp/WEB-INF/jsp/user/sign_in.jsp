@@ -17,8 +17,8 @@
 				</div>
 				
 				<%-- btn-block: 로그인 박스 영역에 버튼을 가득 채운다. --%>
-				<input type="submit" id="signInBtn" class="btn btn-block btn-info" value="로그인">
-				
+				<input type="button" id="signInBtn" class="btn btn-block btn-info" value="로그인">
+				<!-- submit 으로 하지 말자! ajax 쓰려면 button으로 바꾸자 -->
 				<hr>
 				<div class="d-flex justify-content-between">
 				<span class="text-secondary">계정이 없으신가요?</span>
@@ -56,8 +56,9 @@ $(document).ready(function(){
 		$.post(url, params)
 		.done(function(data){
 			if(data.result == "success"){
+				alert("aa");
 				// 로그인 성공
-				location.href = "/timeline/timeline_view"; // 화면으로 가는 것
+				//location.href = "/timeline/timeline_view"; // 화면으로 가는 것 (이게 지금 안 먹히는 중?! )
 			}else {
 				// 로그인 실패
 				alert(data.error_message);

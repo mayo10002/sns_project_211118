@@ -28,6 +28,6 @@ public class PostController {
 		model.addAttribute("postList", postList);
 		
 		return "test/example";
-		
+		/// 지금 postcontroller가 필요없는 상황? > timeline Controller로 전부 이전? > list view는 cardview가 되는 거? 
 	}
 }

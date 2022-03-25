@@ -1,4 +1,4 @@
-package com.sns.timeline;
+package com.sns.post;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,24 +16,30 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sns.post.bo.PostBO;
-
-@RequestMapping("/timeline")
+@RequestMapping("/post")
 @RestController
-public class TimelineRestController {
-	@Autowired 
+public class PostRestController {
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	@Autowired
 	private PostBO postBO;
-	@PostMapping("/create_post")
+
+	@PostMapping("/create")
 	public Map<String, Object> createPost(
 			@RequestParam("content") String content,
 			@RequestParam("file") MultipartFile file,
 			HttpServletRequest request){
 		HttpSession session = request.getSession();
+		Map<String, Object> result = new HashMap<>();
 		int userId = (int)session.getAttribute("userId");
 		String userLoginId = (String)session.getAttribute("userLoginId");
-		
+		if( userLoginId == null ) {
+			result.put("result", "error");
+			logger.error("[글쓰기] 로그인 세션이 없습니다.");
+			return result;
+		}
 		// DB insert
 		int row = postBO.addPost(userLoginId, userId, content, file);
-		Map<String, Object> result = new HashMap<>();
+		
 		result.put("result", "success");
 		if(row < 1) {
 			result.put("result", "error");
