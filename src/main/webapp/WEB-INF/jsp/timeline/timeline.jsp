@@ -34,13 +34,13 @@
 				<div class="like ml-3 mt-2">
 					<!-- 좋아요 비활성화 상태 -->
 					<a href="#" class="like-btn" data-post-id="${card.post.id}">
-						<c:if test="${empty card.filledLike}">
+						<c:if test="${card.filledLike eq false}">
 							<img
 								src="https://www.iconninja.com/files/214/518/441/heart-icon.png"
 								width="18px" height="18px" alt="좋아요 X">
 						</c:if>
 						<!-- 좋아요 활성화 상태 -->
-						<c:if test="${not empty card.filledLike}">
+						<c:if test="${card.filledLike eq true}">
 							<img src="https://www.iconninja.com/files/527/809/128/heart-icon.png" width="18px" height="18px" alt="좋아요 O">
 							<small>좋아요 ${card.count}개</small>
 						</c:if>
@@ -140,7 +140,7 @@ $(document).ready(function() {
 		// 자바 스크립트에서 폼 태그를 만든다.
 		let formData = new FormData();
 		formData.append("content" , content);
-		formData.append("file", $('#file')[0].files[0]); // 첫번째꺼 선택 .첫번째 꺼 올림 . 그냥하자...
+		formData.append("file", $('#file')[0].files[0]); // 첫번 째 것을 선택해서 올리는 것.
 		
 		// TODO ajax
 		

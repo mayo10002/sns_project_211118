@@ -42,6 +42,9 @@ public class TimelineBO {
 			
 			// 게시글 별 좋아요 표시
 			
+			// 게시글 좋아요 여부
+			card.setFilledLike(false);
+			
 			cardViewList.add(card);
 			
 		}
