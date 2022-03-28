@@ -16,7 +16,7 @@
 </head> 
 <body>
 	<div id="wrap">
-		<header class="bg-warning">
+		<header>
 			<jsp:include page="../include/gnb.jsp" />  <!-- 상대경로 -->
 		</header>
 		<section class="contents">

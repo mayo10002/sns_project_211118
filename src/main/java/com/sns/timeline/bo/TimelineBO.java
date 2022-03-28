@@ -40,6 +40,8 @@ public class TimelineBO {
 			List<CommentView> commentList = commentBO.generateCommentViewList(post.getId());
 			card.setCommentList(commentList);
 			
+			// 게시글 별 좋아요 표시
+			
 			cardViewList.add(card);
 			
 		}

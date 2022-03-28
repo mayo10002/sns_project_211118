@@ -19,7 +19,7 @@ public class CardView {
 
 	private Post post;
 	
-	// 글쓴이 정보  >  글에 대한.
+	// 글에 대한 글쓴이 정보
 	private User user;
 	// 댓글들
 	private List<CommentView> commentList;

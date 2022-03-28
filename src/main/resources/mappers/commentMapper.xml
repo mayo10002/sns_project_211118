@@ -19,20 +19,25 @@ VALUES
 	,NOW()
 )
  </insert>
- <select id="selectCommentListByPostId" parameterType="int" resultType="map">
- SELECT 
- ( 
- 	`id`
- 	,`postId`
-	,`userId`
-	,`content`
-	,`createdAt`
-	,`updatedAt`
- )
- FROM
+ <select id="selectCommentListByPostId" parameterType="int" resultType="com.sns.comment.model.Comment">
+	SELECT
+			`id`
+			,`userId`
+			,`postId`
+			,`content`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`comment`
+		WHERE
+			`postId` = #{postId}
+ </select>
+ <delete id="deleteCommentByCommentIdAndUserId" parameterType="map">
+ DELETE FROM 
  	`comment`
  WHERE
- 	`postId` = #{postId}
- 
- </select>
- </mapper>
+ 	`id` = #{id}
+ AND
+ 	`userId` = #{userId} 	
+ </delete>
+  </mapper>

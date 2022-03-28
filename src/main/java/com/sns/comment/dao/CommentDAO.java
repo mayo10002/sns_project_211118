@@ -10,8 +10,11 @@ import com.sns.comment.model.Comment;
 @Repository
 public interface CommentDAO {
 	public void insertComment(
-			@Param("userID")int userID, 
+			@Param("userId")int userId, 
 			@Param("postId")int postId, 
 			@Param("content")String content);
 	public List<Comment> selectCommentListByPostId(int postId);
+	public void deleteCommentByCommentIdAndUserId(
+			@Param("commentId")int commentId, 
+			@Param("userId")int userId);
 }

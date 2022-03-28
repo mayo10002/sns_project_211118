@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManagerService {
 	//실제 이미지가 저장되는 경로 
-	public final static String FILE_UPLOAD_PATH = "D:\\구태현\\6_spring_project\\quiz_sns\\workspace\\images/";
+	public final static String FILE_UPLOAD_PATH = "C:\\Users\\mayo1\\Desktop\\211118\\6_spring_project\\quiz_sns\\workspace\\images/";
 	//input: file, output:imagePath
 	public String saveFile(String loginId, MultipartFile file) throws IOException {
 		// 파일 디렉토리 경로 예: mayo10002_1423723493/sun.png
