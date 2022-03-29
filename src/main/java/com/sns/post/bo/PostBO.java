@@ -24,7 +24,7 @@ public class PostBO {
 		String imagePath = null;
 		if(file != null) {
 		try {
-			fileManagerService.saveFile(loginId, file);
+			imagePath = fileManagerService.saveFile(loginId, file);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

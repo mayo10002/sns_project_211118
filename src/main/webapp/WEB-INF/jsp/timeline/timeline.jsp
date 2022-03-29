@@ -64,7 +64,7 @@
 			
 							<!-- 삭제 버튼 (본인인 경우에만) -->
 							<c:if test="${commentView.user.id eq userId}">
-								<a href="#" class="commentDelBtn" data-comment-id="${comment.id}"> <img
+								<a href="#" class="commentDelBtn" data-comment-id="${commentView.comment.id}"> <img
 									src="https://www.iconninja.com/files/603/22/506/x-icon.png"
 									width="10px" height="10px">
 								</a>
@@ -94,15 +94,15 @@ $(document).ready(function(){
 	$('#fileUploadBtn').on('click', function(e) {
 		e.preventDefault(); // 먼저 눌리지 않게 방지
 		alert("클릭");
-			$('#file').click(); // input file을 클릭한 것과 같은 효과
-		});
+		$('#file').click(); // input file을 클릭한 것과 같은 효과
+	});
 
 	//사용자가 파일 업로드를 했을 때 유효성 확인 및 업로드된 파일 이름 노출
 	$('#file').on('change',function(e) {
 		let fileName = e.target.files[0].name;
 		//alert(fileName);
 		let fileArr = fileName.split(".");
-
+	
 		//확장자 유효성 체크 - 오류가 나기 쉬운 방법이다. 
 		if (fileArr.length < 2|| 
 		(fileArr[fileArr.length - 1] != 'gif'
@@ -110,11 +110,11 @@ $(document).ready(function(){
 		&& fileArr[fileArr.length - 1] != 'jpeg' && fileArr[fileArr.length - 1] != 'png')) {
 			alert("이미지 파일만 업로드 해주세요.");
 			$(this).val(''); //파일이 서버에 업로드되지 않도록 비워둔다.
-			$('#fileName').val(''); //파일명도 비워줌
+			$('#fileName').text(''); //파일명도 비워줌
 			return;
 		}
 		$('#fileName').text(fileName);
-
+	
 	});
 	
 	$('#writeBtn').on('click', function(e){
@@ -221,10 +221,11 @@ $(document).ready(function(){
 	// 좋아요 버튼
 	$('.like-btn').on('click', function(e){
 		e.preventDefault();
+		
 		let postId = $(this).data('post-id');
 	
 		$.ajax({
-			,url: "/like/" + postId
+			url: "/like/" + postId
 			,success: function(data){
 				if(data.result == "success"){
 					location.reload();
