@@ -64,7 +64,7 @@
 			
 							<!-- 삭제 버튼 (본인인 경우에만) -->
 							<c:if test="${commentView.user.id eq userId}">
-								<a href="#" class="commentDelBtn" data-comment-id="${commentView.comment.id}"> <img
+								<a href="#" class="commentDelBtn" data-comment-id="${comment.id}"> <img
 									src="https://www.iconninja.com/files/603/22/506/x-icon.png"
 									width="10px" height="10px">
 								</a>
@@ -89,10 +89,11 @@
 </div>
 
 <script>
-$(document).ready(function() {
+$(document).ready(function(){
 // 파일 업로드 이미지 클릭 > 파일 선택 창이 떠야함
 	$('#fileUploadBtn').on('click', function(e) {
 		e.preventDefault(); // 먼저 눌리지 않게 방지
+		alert("클릭");
 			$('#file').click(); // input file을 클릭한 것과 같은 효과
 		});
 
@@ -196,7 +197,7 @@ $(document).ready(function() {
 	});
 	
 	// 댓글 삭제
-	$('.commentDelBtn').on('click',function(){
+	$('.commentDelBtn').on('click',function(e){
 		e.preventDefault(); 
 		
 		let commentId = $(this).data('comment-id');
@@ -218,12 +219,11 @@ $(document).ready(function() {
 	});
 	
 	// 좋아요 버튼
-	$('.like-btn').on('click', function(){
+	$('.like-btn').on('click', function(e){
 		e.preventDefault();
 		let postId = $(this).data('post-id');
 	
 		$.ajax({
-			type:""
 			,url: "/like/" + postId
 			,success: function(data){
 				if(data.result == "success"){

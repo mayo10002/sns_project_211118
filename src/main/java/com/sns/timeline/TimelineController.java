@@ -27,7 +27,7 @@ public class TimelineController {
 		
 		Integer userId = (Integer)session.getAttribute("userId");
 		
-		List<CardView> cardViewList = timelineBO.generateCardViewList();
+		List<CardView> cardViewList = timelineBO.generateCardViewList(userId);
 		model.addAttribute("cardViewList", cardViewList);
 		model.addAttribute("viewName", "timeline/timeline");
 		return "template/layout";

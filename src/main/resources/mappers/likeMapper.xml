@@ -29,12 +29,11 @@
  		</if>
  </select>
  <delete id="deleteLikeCountByPostIdAndUserId" parameterType="map">
- </delete>
- DELETE FROM 
+  DELETE FROM 
  	`like`
  WHERE
  	`postId` = #{postId}
  AND
  	`userId` = #{userId} 	
- 
+ </delete>
  </mapper>
