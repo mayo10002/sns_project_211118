@@ -28,13 +28,14 @@
  			AND `userId` = #{userId}
  		</if>
  </select>
- <delete id="deleteLikeCountByPostIdAndUserId" parameterType="map">
- </delete>
+ <delete id="deleteLikeCountByPostIdAndUserId" parameterType="map"> 
  DELETE FROM 
  	`like`
  WHERE
  	`postId` = #{postId}
  AND
  	`userId` = #{userId} 	
+ </delete>
+
  
  </mapper>
