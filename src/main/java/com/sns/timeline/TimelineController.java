@@ -19,7 +19,12 @@ public class TimelineController {
 
 	@Autowired
 	private TimelineBO timelineBO;
-	
+	/**
+	 * 홈 타임라인
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/timeline_view")
 	public String timeline(Model model,
 			HttpServletRequest request) {

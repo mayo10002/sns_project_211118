@@ -93,7 +93,7 @@ $(document).ready(function(){
 // 파일 업로드 이미지 클릭 > 파일 선택 창이 떠야함
 	$('#fileUploadBtn').on('click', function(e) {
 		e.preventDefault(); // 먼저 눌리지 않게 방지
-		alert("클릭");
+		//alert("클릭");
 		$('#file').click(); // input file을 클릭한 것과 같은 효과
 	});
 
@@ -201,7 +201,7 @@ $(document).ready(function(){
 		e.preventDefault(); 
 		
 		let commentId = $(this).data('comment-id');
-		alert('댓글 삭제');
+		//alert('댓글 삭제');
 		
 		$.ajax({
 			type:"delete"

@@ -44,4 +44,10 @@ public class UserController {
 		session.removeAttribute("userName");
 		return "redirect:/user/sign_in_view";
 	}
+	@RequestMapping("/profile_view")
+	public String profileView(Model model,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		model.addAttribute("viewName","user/profile");
+		return "template/layout";
+	}
 }
