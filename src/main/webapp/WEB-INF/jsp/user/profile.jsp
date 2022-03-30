@@ -10,23 +10,22 @@
 				<div class="ml-4"><h2>${userName}님</h2><h4>${userLoginId}</h4></div>
 			</div>
 			<!--로그인 아이디가 자신일 때는 환경설정 버튼-->
-			<c:if test="${commentView.user.id eq userId }">
-			<!-- 수정사항: profileView 를 만들어서 jstl 바꿔줘야한다 -->
+			<c:if test="${profileView.user.id eq userId }">
 				<a href="#" alt="환경설정 이동">
 					<img src="https://www.iconninja.com/files/373/816/921/setting-icon.png" alt="환경설정 이미지" width="50" height="50">
 				</a>
 				<!-- 아이디 연락처 이름 정도만 바꾸는 걸로.... 모달로 만들기??? -->
 			</c:if>
 			<!-- 로그인 아이디가 자신이 아닐 때는 팔로우 버튼-->
-			<c:if test="${commentView.user.id ne userId}">
+			<c:if test="${profileView.user.id ne userId}">
 				<a href="#" id="followBtn">
 				<!-- 팔로우 안 되어있을 때에는 팔로우 버튼 -->
 					<c:if test="${followFilled eq false}">
-						<div class="border" round></div>					
+						<div class="border border-primary rounded pd-4">팔로우하기</div>					
 					</c:if>
 				<!-- 팔로우 되어있을 때에는 팔로우 취소 버튼 -->
 					<c:if test="${followFilled eq true}">
-						<img src="" alt="">
+						<div class="bg-secondary rounded pd-4">팔로잉</div>
 					</c:if>
 				</a>
 			</c:if>
@@ -67,7 +66,7 @@ $(document).ready(function(){
 	$('#followBtn').on('click',function(e){
 		e.preventDefault();
 		
-		
+		let 
 	});
 	
 });

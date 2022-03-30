@@ -18,13 +18,7 @@ import com.sns.like.bo.LikeBO;
 public class LikeRestController {
 	@Autowired
 	private LikeBO likeBO;
-	//	url: "/like/" + postId
-//	@RequestMapping("/like/{postId}")
-//	public Map<String, Object> like(
-//			@PathVariable int postId,
-//			HttpServletRequest request){
-//		
-//	}
+
 	@RequestMapping("/{postId}")
 	public Map<String, Object> like(
 			@PathVariable int postId,
