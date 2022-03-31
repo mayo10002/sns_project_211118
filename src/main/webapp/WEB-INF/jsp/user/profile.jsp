@@ -18,8 +18,8 @@
 			</c:if>
 			<!-- 로그인 아이디가 자신이 아닐 때는 팔로우 버튼-->
 			<c:if test="${profileView.user.id ne userId}">
-				<a href="#" id="followBtn">
-				<!-- 팔로우 안 되어있을 때에는 팔로우 버튼 -->
+				<a href="#" id="followBtn" data-post-id="${profileView.user.id}">
+				<!-- 팔로우 안 되어있을 때에는 팔로우 버튼. data id는 profileView에서 user.id를 가져와야 한다 -->
 					<c:if test="${followFilled eq false}">
 						<div class="border border-primary rounded pd-4">팔로우하기</div>					
 					</c:if>
@@ -43,7 +43,7 @@
 			<div class="test-use bg-secondary">테스트2</div>
 			<div class="test-use bg">테스트3</div>
 			<div class="test-use bg-primary">테스트4</div>
-			<!-- 클릭 시 모달로 카드 하나 보이게 하고싶음 -->
+			<!-- 클릭 시 모달로 post카드 하나씩 보이게 하고싶음. 가능할까... -->
 		</div>
 		<!-- 팔로워 목록이 보이는 부분 : c:forEach -->
 				<!-- 클릭시 그 사람 프로필이 보이게 구현(하고싶음) -->
@@ -69,7 +69,11 @@ $(document).ready(function(){
 	$('#followBtn').on('click',function(e){
 		e.preventDefault();
 		
-		let 
+		let userId = $(this).data('user-id');
+		
+		$.ajax({
+			
+		});
 	});
 	
 });
