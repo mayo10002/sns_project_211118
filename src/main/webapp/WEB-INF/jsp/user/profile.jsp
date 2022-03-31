@@ -72,7 +72,15 @@ $(document).ready(function(){
 		let userId = $(this).data('user-id');
 		
 		$.ajax({
-			
+			url:"/like/" + userId
+			,success: function(data){
+				if(data.result == "success"){
+					location.reload();
+				}
+			}
+			,error: function(e){
+				alert("동작에 실패했습니다. 관리자에게 문의해주세요.");
+			}
 		});
 	});
 	
