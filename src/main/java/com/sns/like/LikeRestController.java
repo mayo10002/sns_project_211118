@@ -29,7 +29,7 @@ public class LikeRestController {
 		Integer userId = (Integer)session.getAttribute("userId");
 		
 		//Insert DB
-		likeBO.addLike(postId, postId);
+		likeBO.addLike(postId, userId);
 		// userId - null result
 		if( userId == null ) {
 			result.put("result", "error");

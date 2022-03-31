@@ -8,4 +8,10 @@ public interface FollowDAO {
 	public void insertFollow(
 			@Param("userId")int userId, 
 			@Param("followingId")int followingId);
+	public int selectFollowCountByUserIdAndFollowingId(
+			@Param("userId")int userId, 
+			@Param("followingId")int followingId);
+	public void deleteFollowByUserIdAndFollowingId(
+			@Param("userId")int userId, 
+			@Param("followingId")int followingId);
 }

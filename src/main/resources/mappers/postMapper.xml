@@ -13,8 +13,8 @@
 		,`updatedAt`
 	FROM
 		`post`
- 	</select>
- 	<insert id="insertPost" parameterType="map">
+ </select>
+ <insert id="insertPost" parameterType="map">
  	INSERT INTO `post` 
  	(
  		`userId`
@@ -32,5 +32,25 @@
 		,NOW()
  	)
  	
- 	</insert>
- </mapper>
+</insert>
+ 	
+<select id="selectPostById" parameterType="int" resultType="com.sns.post.model.Post">
+	SELECT 
+ 		`id`
+		,`userId`
+		,`content`
+		,`imagePath`
+		,`createdAt`
+		,`updatedAt`
+	FROM
+		`post`
+	WHERE
+		`id` = #{id}
+</select>
+<delete id="deletePost" parameterType="int">
+	DELETE FROM 
+ 		`post`
+	 WHERE
+ 		`id` = #{id}
+</delete>
+</mapper>

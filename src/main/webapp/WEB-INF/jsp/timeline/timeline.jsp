@@ -10,7 +10,7 @@
 			<div class="d-flex justify-content-between">
 				<div>
 					<input type="file" id="file" class="d-none" accept=".gif,.jpg,.jpeg,.png"> 
-					<a href="#" id="fileUploadBtn"> 
+					<a href="#" id="fileUploadBtn" > 
 					<img src="https://www.iconninja.com/files/505/794/492/image-icon.png" alt="이미지 삽입" width="30"></a>
 				</div>
 				<button type="button" id="writeBtn" class="btn btn-primary">게시</button>
@@ -21,10 +21,15 @@
 		<!-- 타임라인 -->
 		<c:forEach items="${cardViewList}" var="card">
 			<div id="timelinePost" class="border rounded my-3">
+				<!-- 글쓴이 명, 삭제 버튼 -->
+				
 				<div class="d-flex justify-content-between align-items-center ml-3 mr-2 p-2">
 					<small class="font-weight-bold">${card.user.name}</small> 
-					<a href="#"><img src="https://www.iconninja.com/files/860/824/939/more-icon.png"
-						alt="더보기" width="30"></a>
+					<c:if test="${card.user.id eq userId}">
+						<a href="#" class="more-btn" data-toggle="modal" data-target="#moreModal" data-post-id="${card.post.id}">
+						<img src="https://www.iconninja.com/files/860/824/939/more-icon.png"
+							alt="더보기" width="30"></a>
+					</c:if>
 				</div>
 				<!-- 게시글 이미지  -->
 				<div class="post-image">
@@ -87,6 +92,30 @@
 		</c:forEach>
 	</div>
 </div>
+
+
+<!-- 모달  -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal : data-target = 모달 id -->
+<div class="modal fade" id="moreModal">
+	<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+		<div class="modal-content">
+      		<div class="text-center">
+      			<div class="m-3">
+      				<a href="#" id="postDeleteBtn" class="d-block" >삭제하기</a>
+      			</div>
+      			<div class="m-3">
+      				<a href="#" class="d-block" data-dismiss="modal">취소</a>
+      			</div>
+      		</div>
+		</div>
+	</div>
+</div>
+
 
 <script>
 $(document).ready(function(){
@@ -233,6 +262,39 @@ $(document).ready(function(){
 			}
 			,error: function(e){
 				alert("동작에 실패했습니다. 관리자에게 문의해주세요.");
+			}
+		});
+	});
+	
+	// 카드에서 더보기 (...)클릭할 때 삭제될 글번호를 모달에 넣어준다
+	$('.more-btn').on('click',function(){
+		let postId = $(this).data('post-id');
+		//alert(postId);
+		
+		$('#moreModal').data('post-id', postId); // data-post-id="1"
+	});
+	// 모달 창 안에 있는 '삭제하기'글자 클릭
+	$('#moreModal #postDeleteBtn').on('click',function(e){
+		e.preventDefault();
+		//alert("삭제하기 클릭");
+		
+		let postId = $('#moreModal').data('post-id');
+		//alert(postId);
+		
+		$.ajax({
+			type:"DELETE"
+			, url:"/post/delete"
+			, data:{"postId":postId}
+			, success:function(data){
+				if(data.result == "success"){
+					location.reload();
+				}else{
+					alert(data.error_message);
+					
+				}
+			}
+			, error: function(e){
+				alert("삭제하는 데 실패했습니다. 관리자에게 문의해주세요")
 			}
 		});
 	});

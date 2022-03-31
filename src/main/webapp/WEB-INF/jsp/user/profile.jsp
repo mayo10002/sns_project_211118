@@ -10,7 +10,7 @@
 				<div class="ml-4"><h2>${userName}님</h2><h4>${userLoginId}</h4></div>
 			</div>
 			<!--로그인 아이디가 자신일 때는 환경설정 버튼-->
-			<c:if test="${profileView.user.id eq userId }">
+			<c:if test="${profileView.user.id eq userId}">
 				<a href="#" alt="환경설정 이동">
 					<img src="https://www.iconninja.com/files/373/816/921/setting-icon.png" alt="환경설정 이미지" width="50" height="50">
 				</a>
@@ -69,10 +69,10 @@ $(document).ready(function(){
 	$('#followBtn').on('click',function(e){
 		e.preventDefault();
 		
-		let userId = $(this).data('user-id');
+		let followerId = $(this).data('user-id');
 		
 		$.ajax({
-			url:"/like/" + userId
+			url:"/like/" + followerId
 			,success: function(data){
 				if(data.result == "success"){
 					location.reload();

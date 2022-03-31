@@ -33,5 +33,19 @@ public class FileManagerService {
 		// http://localhost/images/mayo10002_1423723493/sun.png
 		return "/images/" + directoryName + file.getOriginalFilename();
 	}
+	// 파일 삭제 메소드
+	public void deleteFile(String imagePath) throws IOException {
+		// 파일 삭제
+		Path path = Paths.get(FILE_UPLOAD_PATH + imagePath.replace("/images/", ""));
+		if (Files.exists(path)) {
+			Files.delete(path);
+		}
+		
+		// 디렉토리 삭제
+		path = path.getParent();
+		if (Files.exists(path)) {
+			Files.delete(path);
+		}
+	}
 	
 }

@@ -11,10 +11,30 @@
  	)
  	VALUES
  	(
- 		userId}
+ 		#{userId}
 		,#{followingId}
 		,NOW()
  	)
  	
  </insert>
+ <select id="selectFollowCountByUserIdAndFollowingId" parameterType="map" resultType="int">
+ SELECT 
+ 	COUNT(1)
+ FROM
+ 		`follow`
+ WHERE
+ 		`followingId` = #{followingId}
+ 		<if test="userId != null">
+ 			AND `userId` = #{userId}
+ 		</if>
+ </select>
+ <delete id="deleteFollowByUserIdAndFollowingId" parameterType="map">
+DELETE FROM 
+ 	`follow`
+ WHERE
+ 	`userId` = #{userId} 
+ 	 AND
+ 	`followingId` = #{followingId} 
+ 	
+ </delete>
  </mapper>
