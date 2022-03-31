@@ -7,5 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FollowRestController {
 
-	@RequestMapping("")
+	@RequestMapping("/{userId}")
+	public Map<String, Object> follow(){
+		
+	}
+	
 }
