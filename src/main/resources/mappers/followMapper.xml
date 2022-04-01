@@ -28,6 +28,26 @@
  			AND `userId` = #{userId}
  		</if>
  </select>
+ <select id="selectFollowerListByUserId" parameterType="int" resultType="map">
+ SELECT 
+ 	`userId`
+	,`followingId`
+	,`createdAt`
+FROM 
+	`follow`
+WHERE
+	`userId` = #{userId}
+ </select>
+ <select id="selectFolloweeListByFollowingId" parameterType="int" resultType="map">
+ SELECT 
+ 	`userId`
+	,`followingId`
+	,`createdAt`
+FROM 
+	`followingId`
+WHERE
+	`userId` = #{userId}
+ </select>
  <delete id="deleteFollowByUserIdAndFollowingId" parameterType="map">
 DELETE FROM 
  	`follow`

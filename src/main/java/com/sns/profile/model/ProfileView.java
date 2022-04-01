@@ -1,7 +1,8 @@
-package com.sns.user.model;
+package com.sns.profile.model;
 
 import com.sns.follow.model.Follow;
 import com.sns.post.model.Post;
+import com.sns.user.model.User;
 
 public class ProfileView {
 	private User user;
