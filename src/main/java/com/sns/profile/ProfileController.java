@@ -31,15 +31,15 @@ public class ProfileController {
 	@RequestMapping("/profile_view/{userLoginId}")
 	public String profileView(
 			@PathVariable String userLoginId,
-			Model model,
-			HttpServletRequest request) {
-		HttpSession session = request.getSession();
+			Model model) {
 		ProfileView profileView = new ProfileView();
 		User user = userBO.getUserByLoginId(userLoginId);
 		int userId = user.getId();
 		List<Post> post = postBO.getPostByUserId(userId);
-		List<Follow> follower = followBO.getFollowerListByUserId(userId);
-		List<Follow> followee = followBO.getFolloweeListByFollowingId(userId);
+		List<User> follower = followBO.getFollowerListByUserId(userId);
+		List<User> followee = followBO.getFolloweeListByFollowingId(userId);
+		followee.get(userId);
+		
 		profileView.setUser(user);
 		profileView.setPost(post);
 		model.addAttribute("profileView",profileView);

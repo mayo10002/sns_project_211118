@@ -75,4 +75,16 @@
  		`id` = #{userId}
  	
  	</select>
+ 	<select id="selectUserList" resultType="com.sns.user.model.User">
+ 	SELECT
+ 		`id`
+ 		,`loginId`
+		,`password`
+		,`name`
+		,`address`
+		,`createdAt`
+		,`updatedAt`
+ 	FROM
+ 		`user`
+ 	</select>
  </mapper>

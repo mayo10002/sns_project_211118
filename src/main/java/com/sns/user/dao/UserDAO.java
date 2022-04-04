@@ -1,5 +1,7 @@
 package com.sns.user.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -18,4 +20,5 @@ public interface UserDAO {
 			@Param ("name")String name, 
 			@Param ("address")String address);
 	public User selectUserByUserId(int userId);
+	public List<User> selectUserList();
 }

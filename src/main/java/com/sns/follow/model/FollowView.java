@@ -3,20 +3,21 @@ package com.sns.follow.model;
 import com.sns.user.model.User;
 
 public class FollowView {
-	private User user;
-	private Follow follow;
-	public User getUser() {
-		return user;
+	private User follower;
+	private User followee;
+	public User getFollower() {
+		return follower;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setFollower(User follower) {
+		this.follower = follower;
 	}
-	public Follow getFollow() {
-		return follow;
+	public User getFollowee() {
+		return followee;
 	}
-	public void setFollow(Follow follow) {
-		this.follow = follow;
+	public void setFollowee(User followee) {
+		this.followee = followee;
 	}
+	
 	
 	
 }
