@@ -44,10 +44,11 @@ WHERE
 	,`followingId`
 	,`createdAt`
 FROM 
-	`followingId`
+	`follow`
 WHERE
-	`userId` = #{userId}
+	`followingId` = #{followingId}
  </select>
+
  <delete id="deleteFollowByUserIdAndFollowingId" parameterType="map">
 DELETE FROM 
  	`follow`

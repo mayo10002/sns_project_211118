@@ -22,9 +22,8 @@
 		<c:forEach items="${cardViewList}" var="card">
 			<div id="timelinePost" class="border rounded my-3">
 				<!-- 글쓴이 명, 삭제 버튼 -->
-				
 				<div class="d-flex justify-content-between align-items-center ml-3 mr-2 p-2">
-					<small class="font-weight-bold">${card.user.name}</small> 
+					<a href="/profile/profile_view/${card.user.loginId}"><small class="font-weight-bold">${card.user.name}</small></a>
 					<c:if test="${card.user.id eq userId}">
 						<a href="#" class="more-btn" data-toggle="modal" data-target="#moreModal" data-post-id="${card.post.id}">
 						<img src="https://www.iconninja.com/files/860/824/939/more-icon.png"

@@ -7,7 +7,7 @@
 		<div id="profile-area" class="d-flex justify-content-between align-items-center m-4">
 			<div class="d-flex align-items-center">
 				<img src="https://www.iconninja.com/files/26/970/557/profile-icon.png" alt="프로필 이미지" width="100" height="100"> 
-				<div class="ml-4"><h2>${userName}님</h2><h4>${userLoginId}</h4></div>
+				<div class="ml-4"><h2>${profileView.user.name}님</h2><h4>${profileView.user.loginId}</h4></div>
 			</div>
 			<!--로그인 아이디가 자신일 때는 환경설정 버튼-->
 			<c:if test="${profileView.user.id eq userId}">
@@ -48,6 +48,7 @@
 		<!-- 팔로워 목록이 보이는 부분 : c:forEach -->
 				<!-- 클릭시 그 사람 프로필이 보이게 구현(하고싶음) -->
 		<div id="followList" class="d-none">
+		
 			<div class="d-flex flex-column-reverse">
 				<div class="follower my-2">
 					<img src="https://www.iconninja.com/files/26/970/557/profile-icon.png" alt="팔로워" width="50" height="50" class=""> <span class="ml-4 mr-4">이름</span> <small>아이디</small>
@@ -72,7 +73,7 @@ $(document).ready(function(){
 		let followerId = $(this).data('user-id');
 		
 		$.ajax({
-			url:"/like/" + followerId
+			url:"/follow/" + followerId
 			,success: function(data){
 				if(data.result == "success"){
 					location.reload();

@@ -1,13 +1,13 @@
 package com.sns.profile.model;
 
-import com.sns.follow.model.Follow;
+import java.util.List;
+
 import com.sns.post.model.Post;
 import com.sns.user.model.User;
 
 public class ProfileView {
 	private User user;
-	private Follow follow;
-	private Post post;
+	private List<Post> post;
 
 	public User getUser() {
 		return user;
@@ -15,17 +15,13 @@ public class ProfileView {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public Follow getFollow() {
-		return follow;
-	}
-	public void setFollow(Follow follow) {
-		this.follow = follow;
-	}
-	public Post getPost() {
+	public List<Post> getPost() {
 		return post;
 	}
-	public void setPost(Post post) {
+	public void setPost(List<Post> post) {
 		this.post = post;
 	}
+
+	
 	
 }

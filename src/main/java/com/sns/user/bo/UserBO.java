@@ -13,6 +13,9 @@ public class UserBO {
 	public Boolean existUserByLoginId(String loginId) {
 		return userDAO.existUserByLoginId(loginId);
 	}
+	public User getUserByLoginId(String loginId) {
+		return userDAO.selectUserByLoginId(loginId);
+	}
 	public User getUserByLoginIdPassword(String loginId, String password) {
 		return userDAO.selectUserByLoginIdPassword(loginId, password);
 	}

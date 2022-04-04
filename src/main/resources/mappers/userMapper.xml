@@ -31,6 +31,20 @@
 		,NOW()
 		)
  	</insert>
+ 	<select id="selectUserByLoginId" parameterType="String" resultType="com.sns.user.model.User">
+ 	SELECT
+ 		`id`
+ 		,`loginId`
+		,`password`
+		,`name`
+		,`address`
+		,`createdAt`
+		,`updatedAt`
+ 	FROM
+ 		`user`
+ 	WHERE
+ 		`loginId` = #{loginId}
+ 	</select>
  	<select id="selectUserByLoginIdPassword" parameterType="map" resultType="com.sns.user.model.User">
  	SELECT
  		`id`

@@ -8,6 +8,7 @@ import com.sns.user.model.User;
 @Repository
 public interface UserDAO {
 	public Boolean existUserByLoginId(String loginId);
+	public User selectUserByLoginId(String loginId);
 	public User selectUserByLoginIdPassword(
 			@Param("loginId")String loginId, 
 			@Param("password")String password);

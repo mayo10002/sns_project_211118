@@ -10,7 +10,7 @@ import com.sns.post.model.Post;
 @Repository
 public interface PostDAO {
 	public List<Post> selectPostList();
-	
+	public List<Post> selectPostByUserId(int userId); 
 	public int insertPost(
 			@Param("userId") int userId, 
 			@Param("content") String content, 

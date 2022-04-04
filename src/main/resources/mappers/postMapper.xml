@@ -14,6 +14,19 @@
 	FROM
 		`post`
  </select>
+ <select id="selectPostByUserId" parameterType="int" resultType="com.sns.post.model.Post">
+ SELECT 
+ 	`id`
+	,`userId`
+	,`content`
+	,`imagePath`
+	,`createdAt`
+	,`updatedAt`
+FROM
+	`post`
+WHERE
+	`userId` = #{userId}
+ </select>
  <insert id="insertPost" parameterType="map">
  	INSERT INTO `post` 
  	(

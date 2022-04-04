@@ -31,6 +31,10 @@ public class PostBO {
 	public List<Post> getPostList(){
 		return postDAO.selectPostList();
 	}
+	
+	public List<Post> getPostByUserId(int userId) {
+		return postDAO.selectPostByUserId(userId);
+	}
 	public int addPost(String loginId, int userId, String content, MultipartFile file) {
 		String imagePath = null;
 		if(file != null) {
