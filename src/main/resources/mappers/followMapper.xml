@@ -28,7 +28,7 @@
  			AND `userId` = #{userId}
  		</if>
  </select>
- <select id="selectFollowerListByUserId" parameterType="int" resultType="map">
+ <select id="selectFollowerListByUserId" parameterType="int" resultType="com.sns.follow.model.Follow">
  SELECT 
  	`userId`
 	,`followingId`
@@ -38,7 +38,7 @@ FROM
 WHERE
 	`userId` = #{userId}
  </select>
- <select id="selectFolloweeListByFollowingId" parameterType="int" resultType="map">
+ <select id="selectFolloweeListByFollowingId" parameterType="int" resultType="com.sns.follow.model.Follow">
  SELECT 
  	`userId`
 	,`followingId`
