@@ -18,7 +18,7 @@
 			</c:if>
 			<!-- 로그인 아이디가 자신이 아닐 때는 팔로우 버튼-->
 			<c:if test="${profileView.user.id ne userId}">
-				<a href="#" id="followBtn" data-post-id="${profileView.user.id}">
+				<a href="#" id="followBtn" data-user-id="${profileView.user.id}">
 				<!-- 팔로우 안 되어있을 때에는 팔로우 버튼. data id는 profileView에서 user.id를 가져와야 한다 -->
 					<c:if test="${followFilled eq false}">
 						<div class="border border-primary rounded pd-4">팔로우하기</div>					
@@ -52,7 +52,7 @@
 				<div class="d-flex flex-column-reverse">
 					<div class="follower my-2">
 						<img src="https://www.iconninja.com/files/26/970/557/profile-icon.png" alt="팔로워" width="50" height="50" class=""> 
-						<span class="ml-4 mr-4">${follower.name}</span> <small>${follower.loginId}</small>
+						<span class="ml-4 mr-4">${follower.user.name}</span> <small>${follower.user.loginId}</small>
 					</div>
 				</div>
 			</c:forEach>
@@ -63,7 +63,7 @@
 			<div class="d-flex flex-column-reverse">
 				<div class="follower my-4">
 					<img src="https://www.iconninja.com/files/26/970/557/profile-icon.png" alt="팔로워" width="50" height="50" class=""> 
-					<span class="ml-4 mr-4">${followee.name}</span> <small>${followee.loginId}</small>
+					<span class="ml-4 mr-4">${followee.user.name}</span> <small>${followee.user.loginId}</small>
 				</div>
 			</div>
 		</c:forEach>
