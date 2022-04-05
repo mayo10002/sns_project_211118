@@ -48,22 +48,22 @@
 		<!-- 팔로워 목록이 보이는 부분 : c:forEach -->
 				<!-- 클릭시 그 사람 프로필이 보이게 구현(하고싶음) -->
 		<div id="followList" class="d-none">
-			<c:forEach items="${follower}" var="follower">
+			<c:forEach items="${profileView.follower}" var="follower">
 				<div class="d-flex flex-column-reverse">
 					<div class="follower my-2">
 						<img src="https://www.iconninja.com/files/26/970/557/profile-icon.png" alt="팔로워" width="50" height="50" class=""> 
-						<span class="ml-4 mr-4">${follower.user.name}</span> <small>${follower.user.loginId}</small>
+						<span class="ml-4 mr-4">${follower.name}</span> <small>${follower.loginId}</small>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
 		<!-- 팔로워 목록이 보이는 부분 : c:forEach -->
 		<div id="followerList" class="d-none">
-		<c:forEach items="${followee}" var="followee">
+		<c:forEach items="${profileView.followee}" var="followee">
 			<div class="d-flex flex-column-reverse">
 				<div class="follower my-4">
 					<img src="https://www.iconninja.com/files/26/970/557/profile-icon.png" alt="팔로워" width="50" height="50" class=""> 
-					<span class="ml-4 mr-4">${followee.user.name}</span> <small>${followee.user.loginId}</small>
+					<span class="ml-4 mr-4">${followee.name}</span> <small>${followee.loginId}</small>
 				</div>
 			</div>
 		</c:forEach>
